@@ -1,0 +1,57 @@
+name: Build Flutter APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.3'
+        channel: 'stable'
+        
+    - name: Get dependencies
+      run: flutter pub get
+      
+    - name: Run tests
+      run: flutter test
+      
+    - name: Build APK
+      run: flutter build apk --release
+      
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release
+        path: build/app/outputs/flutter-apk/app-release.apk
+        retention-days: 30
+        
+    - name: Create release directory
+      run: mkdir -p releases
+      
+    - name: Copy APK to releases
+      run: cp build/app/outputs/flutter-apk/app-release.apk releases/myflutter-${{ github.sha }}.apk
+      
+    - name: Upload Release APK to Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: myflutter-release-apk
+        path: releases/myflutter-${{ github.sha }}.apk
+        retention-days: 90
