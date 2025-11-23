@@ -2,8 +2,11 @@
 
 A Flutter Android application that can be built using GitHub Codespaces and GitHub Actions.
 
+## 🎯 **[→ How to Build APK File](HOW_TO_BUILD_APK.md)** ← Start Here!
+
 ## 📖 Documentation
 
+- **[How to Build APK](HOW_TO_BUILD_APK.md)** - **Start here!** Simple guide to build your APK
 - **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes
 - **[Detailed Building Instructions](BUILDING.md)** - Complete build guide
 - **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Fix common issues
