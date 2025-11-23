@@ -4,16 +4,39 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:myflutter/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Jewel Calc app smoke test', (WidgetTester tester) async {
+    await tester.pumpWidget(const JewelCalcApp());
 
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that our app has the correct title
+    expect(find.text('💎 Jewel Calc 💎'), findsOneWidget);
 
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify that Customer Information section exists
+    expect(find.text('Customer Information'), findsOneWidget);
 
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that Item Calculation section exists
+    expect(find.text('Item Calculation'), findsOneWidget);
+
+    // Verify that Amount Calculation section exists
+    expect(find.text('Amount Calculation'), findsOneWidget);
+
+    // Verify that settings icon exists
+    expect(find.byIcon(Icons.settings), findsOneWidget);
+
+    // Verify that refresh icon exists
+    expect(find.byIcon(Icons.refresh), findsOneWidget);
+  });
+
+  testWidgets('Settings dialog opens', (WidgetTester tester) async {
+    await tester.pumpWidget(const JewelCalcApp());
+
+    // Tap the settings icon
+    await tester.tap(find.byIcon(Icons.settings));
+    await tester.pumpAndSettle();
+
+    // Verify that settings dialog is displayed
+    expect(find.text('⚙️ Base Values Configuration'), findsOneWidget);
+    expect(find.text('Metal Rates (₹ per gram)'), findsOneWidget);
+    expect(find.text('Wastage Settings'), findsOneWidget);
+    expect(find.text('Making Charges'), findsOneWidget);
   });
 }
