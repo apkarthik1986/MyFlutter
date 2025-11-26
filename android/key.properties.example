@@ -1,0 +1,19 @@
+# Example key.properties file for release signing
+# Copy this file to key.properties and fill in your actual values
+# IMPORTANT: Never commit key.properties to version control
+
+# Your keystore password
+storePassword=YOUR_KEYSTORE_PASSWORD_HERE
+
+# Your key password (can be the same as keystore password)
+keyPassword=YOUR_KEY_PASSWORD_HERE
+
+# The alias you used when creating the keystore (usually 'upload')
+keyAlias=upload
+
+# Absolute path to your keystore file
+# Examples:
+#   Linux/Mac: /home/username/upload-keystore.jks
+#   Windows: C:/Users/username/upload-keystore.jks
+#   Relative to android/ directory: upload-keystore.jks
+storeFile=PATH_TO_YOUR_KEYSTORE_FILE
