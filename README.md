@@ -7,10 +7,23 @@ A Flutter Android application for jewellery invoicing that can be built using Gi
 ## 📖 Documentation
 
 - **[How to Build APK](HOW_TO_BUILD_APK.md)** - **Start here!** Simple guide to build your APK
+- **[Keystore Setup Guide](KEYSTORE_SETUP.md)** - **Important!** Enable seamless app updates
 - **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes
 - **[Detailed Building Instructions](BUILDING.md)** - Complete build guide
 - **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Fix common issues
 - **[GitHub Actions Workflows](.github/workflows/README.md)** - CI/CD documentation
+
+## ⚠️ Important: App Update Fix
+
+**Problem**: App updates were failing, requiring users to uninstall and reinstall.
+
+**Solution**: This has been fixed! The app now supports seamless updates without uninstalling.
+
+**For Developers**: To enable seamless updates, you need to set up release signing. See **[Keystore Setup Guide](KEYSTORE_SETUP.md)** for instructions.
+
+**For Current Users**: The next update may require a one-time uninstall and reinstall. After that, all future updates will work seamlessly!
+
+---
 
 ## 💎 Features
 
