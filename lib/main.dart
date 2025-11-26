@@ -359,7 +359,7 @@ class _JewelCalcHomeState extends State<JewelCalcHome> {
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
-                  pw.Text('Total Amount:',
+                  pw.Text('T.Amount:',
                       style: pw.TextStyle(
                           fontSize: 20, fontWeight: pw.FontWeight.bold)),
                   pw.Text('Rs.${finalAmount.round()}',
