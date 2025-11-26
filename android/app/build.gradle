@@ -70,6 +70,8 @@ android {
 
     buildTypes {
         release {
+            // Use release signing config if keystore properties are available,
+            // otherwise Android Gradle will use debug signing by default
             if (keystorePropertiesFile.exists() && 
                 keystoreProperties['storeFile'] &&
                 keystoreProperties['keyAlias'] &&
