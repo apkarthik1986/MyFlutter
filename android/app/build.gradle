@@ -70,11 +70,13 @@ android {
 
     buildTypes {
         release {
-            signingConfig (keystorePropertiesFile.exists() && 
-                          keystoreProperties['storeFile'] &&
-                          keystoreProperties['keyAlias'] &&
-                          keystoreProperties['keyPassword'] &&
-                          keystoreProperties['storePassword']) ? signingConfigs.release : signingConfigs.debug
+            if (keystorePropertiesFile.exists() && 
+                keystoreProperties['storeFile'] &&
+                keystoreProperties['keyAlias'] &&
+                keystoreProperties['keyPassword'] &&
+                keystoreProperties['storePassword']) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }
